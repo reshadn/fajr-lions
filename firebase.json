@@ -1,0 +1,5 @@
+{
+  "firebase": "fajr-lions",
+  "public": "app",
+  "rules": "config/security-rules.json"
+}

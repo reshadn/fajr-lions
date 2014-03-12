@@ -11,11 +11,11 @@
     .factory('fajrLionsService', ['$q', '$firebase', function($q, $firebase) {
         var d = new Date(),
             currDate = d.toDateString(),
-            fajrLionsRef = new Firebase('https://fajr-lions.firebaseio.com/fajrLions');
+            fajrLionsRef = new Firebase('https://fajr-lions.firebaseio.com/');
 
-        fajrLionsRef.child(currDate).once('value', function(snapshot){
-            if(!snapshot.hasChild('fajr')){
-                snapshot.child('fajr/count').set(0);
+        fajrLionsRef.once('value', function(snapshot){
+            if(!snapshot.hasChild(currDate)){
+                fajrLionsRef.child(currDate).set({fajr: {count: 0}});
             }
         });
 
@@ -24,7 +24,12 @@
                 var d = $q.defer();
 
                 fajrLionsRef.once('value', function(snapshot){
-                    d.resolve(snapshot.child(currDate + '/fajr/count').val());
+                    if(!snapshot.hasChild(currDate)){
+                        fajrLionsRef.child(currDate).set({fajr: {count: 0}});
+                        d.resolve(0);
+                    } else {
+                        d.resolve(snapshot.child(currDate + '/fajr/count').val());
+                    }
                 });
 
                 return d.promise;

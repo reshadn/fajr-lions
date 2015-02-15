@@ -1,5 +1,9 @@
 {
   "firebase": "fajr-lions",
-  "public": "app",
-  "rules": "config/security-rules.json"
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
 }

@@ -1,0 +1,27 @@
+{
+  "name": "fajr-lions",
+  "version": "1.0.0",
+  "description": "fajr-lions",
+  "main": "app/index.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reshadn/fajr-lions.git"
+  },
+  "keywords": [
+    "fajr",
+    "salah",
+    "Islam"
+  ],
+  "author": "Reshad Noorzay",
+  "license": "none",
+  "bugs": {
+    "url": "https://github.com/reshadn/fajr-lions/issues"
+  },
+  "homepage": "https://github.com/reshadn/fajr-lions"
+}
